@@ -1,0 +1,103 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">
+                    Computação de inventário
+                </h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <br><br>
+                        <table class="table" id="tabela">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        categoria
+                                    </th>
+                                    <th>
+                                        Nome do Item
+                                    </th>
+                                    <th>
+                                        Sala/Setor
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+
+                            <label for="categoria">
+                                categoria
+                            </label>
+                            <input type="text" id="categoria" />
+                        </div>
+                        <div class="form-group">
+
+                            <label for="Item">
+                                Nome do Item
+                            </label>
+                            <input type="text" id="Item" />
+                        </div>
+                        <div class="form-group">
+
+                            <label for="sala">
+                                Sala/Setor
+                            </label>
+                            <input type="text" id="sala" />
+                            <br><button onclick="cadastra()" class="btn btn-success">
+                                Cadastrar
+                            </button>
+                            <br><br><button class="btn btn-primary">
+                                Limpar
+                            </button>
+                            <br><br><button class="btn btn-danger">
+                                Excluir
+                            </button>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+
+</html>
+<script>
+    var lista = []
+    function cadastra() {
+        var cat = document.getElementById("categoria").value
+        var Item = document.getElementById("Item").value
+        var sala = document.getElementById("sala").value
+        cod++
+        var Item = {
+            categoria: cat,
+            nome: nomeItem,
+            sala: sala,
+            cod: cod
+        }
+        lista.push(Item)
+        preencheTabela()
+    }
+    function preencheTabela() {
+        for (item of lista) {
+            var linha = "<tr><td>" + item.cod + "</td><td>" + item.categoria + "</td><td>" + item.nome + "</td><td>" + item.sala + "</td><td>
+            document.getElementById("tabela").innerHTML += linha
+        }
+    }
+</script>
